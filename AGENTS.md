@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the standalone Node server under `/server` out of TanStack imports so SQLite and Express never enter the published application.
+- Bind the standalone API to loopback and allow only localhost browser origins so the evaluation server cannot be publicly exposed by default.
+- Use browser-side API requests only when the storefront runs on localhost; the hosted preview uses in-memory fake data so it never contacts an external API.
+- Keep shared catalog data and store state separate from route components so all shopping pages use the same basket and session.
+- Keep server comparison cases in separate safe and near-miss directories and scoring locations in GROUND_TRUTH.md so scanner input can exclude the guide.
